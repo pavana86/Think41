@@ -1,9 +1,7 @@
-from django.contrib import admin
-from django.urls import path,include
-from . import views
+from django.urls import path
+from .views import BoardView, MoveTaskView, ReorderTasksView
 
 urlpatterns = [
-    path('board/<int:board_id>/view/', views.get_board_view),
-    path('task/<int:task_id>/move/', views.move_task),
-    path('column/<int:column_id>/reorder/', views.reorder_tasks),
-]
+    path('board/<int:board_id>/view/', BoardView.as_view()),
+    path('task/<int:task_id>/move/', MoveTaskView.as_view()),
+    path('column/<int:column_id>/reorder/', ReorderTasksView.as_view()),]
